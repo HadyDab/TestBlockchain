@@ -65,7 +65,7 @@ public class HashingText {
 
 	@Test
 	public void test() {
-		assertEquals("Object are equals", "Hady", "Hady");
+		
 	}
 
 }
