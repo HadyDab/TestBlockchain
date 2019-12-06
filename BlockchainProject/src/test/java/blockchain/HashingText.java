@@ -64,7 +64,7 @@ public class HashingText {
 	}
 
 	@Test
-	public void test() {
+	public static void testhashingofBlock() {
 		
 	}
 
