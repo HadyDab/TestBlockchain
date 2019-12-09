@@ -4,6 +4,9 @@
 package util;
 
 import java.security.MessageDigest;
+import java.util.List;
+
+import blockchain.Block;
 
 /**
  * @author hadydab
@@ -29,6 +32,7 @@ public class SHAHelper {
 			catch(Exception e) {
 				throw new RuntimeException(e);
 			}
-		}	
+		}
+		
 
 }

@@ -74,7 +74,7 @@ public class Block {
 	}
 	
 	
-	private String calculateHash() {
+	public String calculateHash() {
 		
 		String calculatedhash = SHAHelper.getSha256StringFromInput(previousHash
 				+ Long.toString(timeStamp)
