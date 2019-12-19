@@ -20,6 +20,7 @@ public class Block {
 	private String data; //our data will be a simple message.
 	private long timeStamp; //as number of milliseconds since 1/1/1970.
 	private List<Transaction> transactions;
+	private int nonce;
 	
 	
 	public Block(String previousHash, String data, long timeStamp, List<Transaction> transactions) {
@@ -78,10 +79,42 @@ public class Block {
 		
 		String calculatedhash = SHAHelper.getSha256StringFromInput(previousHash
 				+ Long.toString(timeStamp)
+				+ Integer.toString(nonce) 
 				+ Integer.toString(Arrays.hashCode(transactions.toArray()))
 				);
 		
 		return calculatedhash;
+	}
+	
+	
+	public void mineBlock(int difficulty) {
+		String target = new String(new char[difficulty]).replace('\0', '0'); //Create a string with difficulty * "0" 
+		while(!hash.substring( 0, difficulty).equals(target)) {
+			nonce ++;
+			hash = calculateHash();
+		}
+		System.out.println("Block Mined!!! : " + hash);
+	}
+	
+	
+	public void printBlock() {
+		String blockString = "BlockHash: " + hash 
+				+ "|| PreviousBlockHash: " + previousHash 
+				+ "|| Timestamp: " + Long.toString(timeStamp)
+				+ "|| Transactions: " + "\n" 
+				+ getTransactionsAsString();
+		
+		System.out.println(blockString );
+	}
+	
+	
+	private String getTransactionsAsString() {
+		String transactionsString = "";
+		for(Transaction transaction: this.transactions) {
+			String stran = transaction.toString();
+			transactionsString += stran + "/n";
+		}
+		return transactionsString;
 	}
 	
 	

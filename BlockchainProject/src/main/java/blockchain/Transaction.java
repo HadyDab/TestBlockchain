@@ -3,6 +3,8 @@
  */
 package blockchain;
 
+import java.util.Arrays;
+
 /**
  * @author hadydab
  *
@@ -49,8 +51,13 @@ public class Transaction {
 	}
 	
 	
+	@Override
+	public String toString() {
+		return "Transaction [sender=" + Arrays.toString(sender) + ", receiver=" + Arrays.toString(receiver)
+				+ ", transactionfee=" + transactionfee + ", amount=" + amount + "]";
+	}
 	
-	
+
 	
 
 }
