@@ -28,15 +28,21 @@ public class TestChain {
 		System.out.println("Mining Duration in Seconds:  " + BlockchainUtil.mineBlock(genesisBlock, 3));
 		
 		blockchain.add(genesisBlock);
-		
-		BlockchainUtil.saveBlockchainInToDB(blockchain);
-		
+		blockchain.forEach(Block::printBlock);
 		
 		
-		List<Block> blockchainFromDB = BlockchainUtil.getBlockchainFromDB();
-		blockchainFromDB.forEach(Block::printBlock);
 		
-		System.out.println("Hello World");
+		
+		
+		
+		//BlockchainUtil.saveBlockchainInToDB(blockchain);
+		
+		
+		
+		//List<Block> blockchainFromDB = BlockchainUtil.getBlockchainFromDB();
+		//blockchainFromDB.forEach(Block::printBlock);
+		
+		//System.out.println("Hello World");
 		
 		
 		
